@@ -5,7 +5,7 @@ graph TD
 common-rs --> middle-rs
 middle-rs --> runner-rs
 
-runner-cpp
+middle-cpp --> runner-cpp
 
 ```
 
