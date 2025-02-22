@@ -3,7 +3,8 @@
 ```mermaid
 graph TD
 
-runner-rs
+middle-rs --> runner-rs
+
 runner-cpp
 
 ```
