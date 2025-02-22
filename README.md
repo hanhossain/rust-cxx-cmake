@@ -1,4 +1,6 @@
-# Example project to integrate Rust and C++ together with cmake
+# Integrate Rust and C++ together with cmake
+
+## Architecture
 
 ```mermaid
 graph TD
@@ -9,6 +11,23 @@ middle-cpp --> runner-cpp
 middle-cpp --> runner-rs
 
 ```
+
+## TODO
+
+- common-rs
+    - Simple struct (with a method?)
+    - Rust struct (with a method)
+- common-cpp
+    - Class with vec member
+        - With method
+- hidden-rs
+    - Rust struct (with a method)
+        - Uses common-cpp
+- middle-cpp
+    - Uses common-rs
+    - Uses hidden-rs
+- Exe (c++)
+    - Uses middle-rs
 
 ## Building and running
 
