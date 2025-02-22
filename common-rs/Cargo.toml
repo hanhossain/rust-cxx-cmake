@@ -1,7 +1,6 @@
 [package]
-name = "middle-rs"
+name = "common-rs"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-common-rs = { path = "../common-rs" }

@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["middle-rs", "runner-rs"]
+members = ["common-rs", "middle-rs", "runner-rs"]
