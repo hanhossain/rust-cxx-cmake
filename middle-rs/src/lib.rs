@@ -1,4 +1,4 @@
-pub use common_rs::ffi::Language;
+pub use common_rs::ffi::{Language, LanguageContext};
 
 #[cxx::bridge(namespace = "middle_rs")]
 mod ffi {
@@ -33,6 +33,11 @@ impl Middle {
             "[{}] middle_rs::Middle::run({:?})",
             self.caller, self.language
         );
+        let mut language_context = LanguageContext {
+            language: Language::Rust,
+            value: 10,
+        };
+        language_context.increment();
     }
 }
 

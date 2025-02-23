@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2024"
 links = "common-rs"
 
+[lib]
+crate-type = ["staticlib", "lib"]
+
 [dependencies]
 cxx = { version = "1.0.141", features = ["c++17"] }
 

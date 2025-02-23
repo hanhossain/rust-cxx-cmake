@@ -5,6 +5,7 @@
 ```mermaid
 graph TD
     common-rs --> middle-rs
+    common-rs --> middle-cpp
     middle-rs --> runner-rs
     middle-rs --> runner-cpp
     middle-cpp --> runner-cpp
@@ -14,7 +15,6 @@ graph TD
 ## TODO
 
 - common-rs
-    - Simple struct (with a method?)
     - Rust struct (with a method)
 - common-cpp
     - Class with vec member
@@ -23,7 +23,6 @@ graph TD
     - Rust struct (with a method)
         - Uses common-cpp
 - middle-cpp
-    - Uses common-rs
     - Uses hidden-rs
 
 ## Building and running

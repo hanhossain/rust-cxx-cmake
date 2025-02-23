@@ -1,3 +1,5 @@
 fn main() {
-    let _ = cxx_build::bridge("src/lib.rs");
+    cxx_build::bridge("src/lib.rs")
+        .std("c++17")
+        .compile("common_rs");
 }
