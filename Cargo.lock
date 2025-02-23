@@ -67,6 +67,10 @@ dependencies = [
 [[package]]
 name = "common-rs"
 version = "0.1.0"
+dependencies = [
+ "cxx",
+ "cxx-build",
+]
 
 [[package]]
 name = "cxx"
@@ -162,6 +166,8 @@ name = "middle-rs"
 version = "0.1.0"
 dependencies = [
  "common-rs",
+ "cxx",
+ "cxx-build",
 ]
 
 [[package]]

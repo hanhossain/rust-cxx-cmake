@@ -2,5 +2,10 @@
 name = "common-rs"
 version = "0.1.0"
 edition = "2024"
+links = "common-rs"
 
 [dependencies]
+cxx = { version = "1.0.141", features = ["c++17"] }
+
+[build-dependencies]
+cxx-build = { version = "1.0.141", features = ["parallel"] }

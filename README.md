@@ -4,12 +4,11 @@
 
 ```mermaid
 graph TD
-common-rs --> middle-rs
-middle-rs --> runner-rs
-
-middle-cpp --> runner-cpp
-middle-cpp --> runner-rs
-
+    common-rs --> middle-rs
+    middle-rs --> runner-rs
+    middle-rs --> runner-cpp
+    middle-cpp --> runner-cpp
+    middle-cpp --> runner-rs
 ```
 
 ## TODO
@@ -26,8 +25,6 @@ middle-cpp --> runner-rs
 - middle-cpp
     - Uses common-rs
     - Uses hidden-rs
-- Exe (c++)
-    - Uses middle-rs
 
 ## Building and running
 
