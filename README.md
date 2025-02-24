@@ -14,8 +14,6 @@ graph TD
 
 ## TODO
 
-- common-rs
-    - Rust struct (with a method)
 - common-cpp
     - Class with vec member
         - With method

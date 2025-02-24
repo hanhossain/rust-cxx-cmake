@@ -1,3 +1,4 @@
+use common_rs::ComplexContext;
 pub use common_rs::ffi::{Language, LanguageContext};
 
 #[cxx::bridge(namespace = "middle_rs")]
@@ -38,6 +39,10 @@ impl Middle {
             value: 10,
         };
         language_context.increment();
+
+        let mut complex_context = ComplexContext::new();
+        complex_context.add_language(Language::Rust);
+        complex_context.print_languages();
     }
 }
 
