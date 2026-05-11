@@ -9,7 +9,7 @@ crate-type = ["staticlib", "lib"]
 
 [dependencies]
 common-rs = { path = "../common-rs" }
-cxx = { version = "1.0.141", features = ["c++17"] }
+cxx = { version = "1.0.194", features = ["c++17"] }
 
 [build-dependencies]
-cxx-build = { version = "1.0.141", features = ["parallel"] }
+cxx-build = { version = "1.0.194", features = ["parallel"] }
