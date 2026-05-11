@@ -1,5 +1,10 @@
 target
 build
+cmake-build-debug
+
+# ides
 .vscode
 .idea
-cmake-build-debug
+
+# clangd cache
+.cache

@@ -18,6 +18,7 @@ corrosion_import_crate(
     CRATE_TYPES staticlib
 )
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_OSX_DEPLOYMENT_TARGET 15.1)
 
 set(CXXBRIDGE_PATH ${CMAKE_CURRENT_BINARY_DIR}/cargo/build/${Rust_CARGO_TARGET_CACHED}/cxxbridge)
