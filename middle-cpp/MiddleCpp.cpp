@@ -3,8 +3,12 @@
 #include <iostream>
 #include <utility>
 
-MiddleCpp::MiddleCpp(std::string owner)
-    : owner_(std::move(owner))
+#include "rust/cxx.h"
+#include "middle-rs/src/lib.rs.h"
+
+MiddleCpp::MiddleCpp(std::string owner, rust::Box<SomethingOpaque> something_opaque)
+    : owner_(std::move(owner)),
+      something_opaque_(std::move(something_opaque))
 {
     std::cout << "[MiddleCpp] Creating MiddleCpp" << std::endl;
 }
@@ -12,10 +16,17 @@ MiddleCpp::MiddleCpp(std::string owner)
 const std::string& MiddleCpp::print() const
 {
     std::cout << "[MiddleCpp::print] Owner is " << owner_ << std::endl;
+    something_opaque_->print();
     return owner_;
 }
 
-std::unique_ptr<MiddleCpp> MiddleCpp_new(const std::string& owner)
+void MiddleCpp::change_owner()
 {
-    return std::make_unique<MiddleCpp>(owner);
+    std::cout << "[MiddleCpp::change_owner] Changing owner" << std::endl;
+    something_opaque_->set_owner("MiddleCpp");
+}
+
+std::unique_ptr<MiddleCpp> MiddleCpp_new(const std::string& owner, rust::Box<SomethingOpaque> something_opaque)
+{
+    return std::make_unique<MiddleCpp>(owner, std::move(something_opaque));
 }
