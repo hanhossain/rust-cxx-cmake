@@ -1,27 +1,13 @@
 use cxx::let_cxx_string;
-use ffi::middle_cpp_new;
-use middle_rs::Language;
-
-#[cxx::bridge]
-mod ffi {
-    #[namespace = "middle_cpp"]
-    unsafe extern "C++" {
-        include!("middle_cpp.h");
-
-        type MiddleCpp;
-
-        #[cxx_name = "MiddleCpp_new"]
-        fn middle_cpp_new(caller: &CxxString) -> UniquePtr<MiddleCpp>;
-        fn print(&self);
-    }
-}
 
 fn main() {
     println!("Hello world from runner-rs!");
-    let middle = middle_rs::Middle::new("runner-rs".to_string(), Language::Rust);
-    middle.run();
+    let something_opaque = middle_rs::SomethingOpaque::new();
+    println!("something_opaque.owner() -> '{}'", something_opaque.owner());
+    let_cxx_string!(owner = "runner-rs");
+    let mut middle = middle_rs::ffi::MiddleCpp_new(&owner, Box::new(something_opaque));
+    middle.print();
 
-    let_cxx_string!(caller = "runner-rs");
-    let middle_cpp = middle_cpp_new(&caller);
-    middle_cpp.print();
+    middle.pin_mut().change_owner();
+    middle.print();
 }

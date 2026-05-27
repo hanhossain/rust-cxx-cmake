@@ -2,14 +2,10 @@
 name = "middle-rs"
 version = "0.1.0"
 edition = "2024"
-links = "middle-rs"
-
-[lib]
-crate-type = ["staticlib", "lib"]
 
 [dependencies]
-common-rs = { path = "../common-rs" }
-cxx = { version = "1.0.194", features = ["c++17"] }
+cxx = "1.0.194"
 
 [build-dependencies]
-cxx-build = { version = "1.0.194", features = ["parallel"] }
+cmake = "0.1.58"
+cxx-build = "1.0.194"

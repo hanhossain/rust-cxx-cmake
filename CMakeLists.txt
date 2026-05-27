@@ -3,25 +3,14 @@ project(rust-cxx-cmake LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-include(FetchContent)
-
-FetchContent_Declare(
-    Corrosion
-    GIT_REPOSITORY https://github.com/corrosion-rs/corrosion.git
-    GIT_TAG v0.5
-)
-FetchContent_MakeAvailable(Corrosion)
-
-corrosion_import_crate(
-    MANIFEST_PATH Cargo.toml
-    CRATE_TYPES staticlib
-)
-
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_OSX_DEPLOYMENT_TARGET 15.1)
 
-set(CXXBRIDGE_PATH ${CMAKE_CURRENT_BINARY_DIR}/cargo/build/${Rust_CARGO_TARGET_CACHED}/cxxbridge)
+option(CALLED_FROM_RUST "called from rust" OFF)
 
-add_subdirectory(runner-cpp)
+if (NOT CALLED_FROM_RUST)
+    include_directories(target/cxxbridge)
+endif ()
+
 add_subdirectory(middle-cpp)
+
+install(TARGETS middle-cpp)
