@@ -9,6 +9,8 @@ fn test_runner_rs() {
 Hello world from runner-rs!
 [middle-rs::SomethingOpaque::owner] owner is 'rust'
 something_opaque.owner() -> 'rust'
+[MiddleCpp] Creating MiddleCpp
+[MiddleCpp::print] Owner is runner-rs
 ";
     assert_eq!(actual, expected);
 }

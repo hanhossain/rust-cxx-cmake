@@ -200,6 +200,7 @@ dependencies = [
 name = "runner-rs"
 version = "0.1.0"
 dependencies = [
+ "cxx",
  "middle-rs",
 ]
 
